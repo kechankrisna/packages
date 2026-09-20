@@ -13,7 +13,12 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/googlemaps/ios-maps-sdk", from: "10.0.0"),
-        .package(url: "https://github.com/googlemaps/google-maps-ios-utils", from: "7.0.0"),
+        // Forked from googlemaps/google-maps-ios-utils to add a dedicated
+        // GoogleMapsUtilsObjC product (see that fork's README/commit history):
+        // Xcode's SPM integration did not wire up clang module search paths
+        // for GoogleMapsUtilsObjC when it was only reachable as the second
+        // target bundled into the upstream "GoogleMapsUtils" product.
+        .package(url: "https://github.com/kechankrisna/google-maps-ios-utils", branch: "main"),
     ],
     targets: [
         .target(
@@ -21,6 +26,7 @@ let package = Package(
             dependencies: [
                 .product(name: "GoogleMaps", package: "ios-maps-sdk"),
                 .product(name: "GoogleMapsUtils", package: "google-maps-ios-utils"),
+                .product(name: "GoogleMapsUtilsObjC", package: "google-maps-ios-utils"),
             ],
             resources: [
                 .copy("Resources/PrivacyInfo.xcprivacy"),

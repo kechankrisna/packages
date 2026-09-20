@@ -3,10 +3,10 @@
     {
       "identity" : "google-maps-ios-utils",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/googlemaps/google-maps-ios-utils",
+      "location" : "https://github.com/kechankrisna/google-maps-ios-utils",
       "state" : {
-        "revision" : "e3eec96b96ab2aa69c60e154d70edf523b495f82",
-        "version" : "7.1.0"
+        "branch" : "main",
+        "revision" : "04fc5072a1d55dacc6400086bc2fc98772c7e749"
       }
     },
     {
